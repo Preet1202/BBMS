@@ -1,0 +1,93 @@
+﻿@model BBMS.Models.SignUpUserModel
+@{
+    ViewData["Title"] = "SignUp";
+}
+@*
+<div class="container">
+    <h1 class="display-4 text-sm-center">SignUp</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 offset-4">
+            <form asp-action="SignUp">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Fname" class="control-label"></label>
+                    <input asp-for="Fname" class="form-control" />
+                    <span asp-validation-for="Fname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Lname" class="control-label"></label>
+                    <input asp-for="Lname" class="form-control" />
+                    <span asp-validation-for="Lname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <label asp-for="RoleName" class="control-label"></label>
+                @Html.DropDownListFor(m => m.RoleName, new SelectList(ViewBag.Roles, "Value", "Text"), new { @class = "form-control" })
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="control-label"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="SignUp" class="btn btn-primary" />
+                </div>
+            </form>
+            <div>
+                Already Have Account <a asp-action="Login" asp-controller="Account">Click Here!</a> to Login.
+            </div>
+        </div>
+    </div>
+
+   
+</div>
+
+*@
+
+<div class="login-box">
+    @*  <img src="~/Images/download.png" class="avatar">*@
+    <h1 class="mb-4">SignUp Here</h1>
+    <form asp-action="SignUp">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <p>First Name</p>
+        <input type="text" name="Fname" placeholder="Enter FirstName" asp-for="Fname">
+
+        <p>Last Name</p>
+        <input type="text" name="Last Name" placeholder="Enter LastName" asp-for="Lname">
+
+
+        <p>Email</p>
+        <input type="text" name="Email" placeholder="Enter Email" asp-for="Email">
+
+        <label asp-for="RoleName" class="control-label"></label>
+        @Html.DropDownListFor(m => m.RoleName, new SelectList(ViewBag.Roles, "Value", "Text"))
+       <span asp-validation-for="RoleName" ></span>
+
+        <p>Password</p>
+        <input type="password" name="Password" placeholder="Enter Password" asp-for="Password">
+
+        
+        <p>Confirm Passworde</p>
+        <input type="password" name="Confirm Password" placeholder="Enter Password" asp-for="ConfirmPassword">
+
+        <span asp-validation-for="Password" class="text-danger"></span>
+
+
+        <input type="submit" name="submit" value="SignUp">
+
+       
+        <a asp-controller="account" asp-action="Login">Login</a>
+        <br>
+
+    </form>
+</div>
+
