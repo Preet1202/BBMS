@@ -16,29 +16,29 @@ jobs:
   if_merged:
     if: github.event.pull_request.merged == true
     steps:
-     build:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v3
+    - build:
+       runs-on: ubuntu-latest
+       steps:
+       - uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+       - name: Set up Node.js
+         uses: actions/setup-node@v3
+         with:
+           node-version: ${{ env.NODE_VERSION }}
+           cache: 'npm'
 
-      - name: npm install and build
+       - name: npm install and build
         run: |
           npm install
           npm run build --if-present
 
-      - name: Upload artifact for deployment job
+       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
           path: build
 
-     deploy:
+   - deploy:
       permissions:
         contents: none
       runs-on: ubuntu-latest
