@@ -15,8 +15,8 @@ permissions:
 jobs:
   if_merged:
     if: github.event.pull_request.merged == true
-  
-    build:
+    steps:
+     build:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
@@ -38,7 +38,7 @@ jobs:
           name: node-app
           path: build
 
-    deploy:
+     deploy:
       permissions:
         contents: none
       runs-on: ubuntu-latest
