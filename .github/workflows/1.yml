@@ -3,7 +3,6 @@ on:
     branches:
       - development
     types: [closed]
-  workflow_dispatch:
 
 env:
   AZURE_WEBAPP_NAME: rewardportal-development   # set this to your application's name
